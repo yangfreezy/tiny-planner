@@ -40,7 +40,7 @@ export const Row = ({
 
 Row.propTypes = {
   alignItems: PropTypes.string,
-  children: PropTypes.oneOfType([PropTypes.array, PropTypes.element]),
+  children: PropTypes.any,
   justifyContent: PropTypes.string,
   width: PropTypes.string,
   maxWidth: PropTypes.string,

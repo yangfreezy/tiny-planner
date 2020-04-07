@@ -1,5 +1,13 @@
 import React from "react";
 
+import { NavBar, WeeklyMealPlanList } from "../../Organisms";
+import { Column } from "../../Layouts";
+
 export const WeeklyMealPlanPage = () => {
-  return <div />;
+  return (
+    <Column>
+      <NavBar />
+      <WeeklyMealPlanList />
+    </Column>
+  );
 };

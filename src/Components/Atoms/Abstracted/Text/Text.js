@@ -3,13 +3,13 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 
 const StyledText = styled.div`
-  line-height: "auto";
+  line-height: ${({ fontSize }) => fontSize || "auto"};
   text-wrap: wrap;
   word-wrap: break-word;
   align-items: ${({ alignItems }) => alignItems || "center"};
   text-align: ${({ textAlign }) => textAlign || "center"};
   margin: ${({ margin }) => margin || "10px 0px"};
-  padding: ${({ padding }) => padding || "0px"};
+  padding: ${({ padding }) => padding || "0px 0px"};
   width: ${({ width }) => width || "auto"};
   max-width: ${({ maxWidth }) => maxWidth || "none"};
   font-size: ${({ fontSize }) => fontSize || "14px"};

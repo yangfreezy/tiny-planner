@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 
-const StyledPrimaryButton = styled.div`
+const StyledPrimaryButton = styled.button`
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -16,10 +16,12 @@ const StyledPrimaryButton = styled.div`
   line-height: ${({ fontSize }) => fontSize || "12px"};
   margin: ${({ margin }) => margin || "10px 10px 10px 10px"};
   padding: ${({ padding }) => padding || "15px 25px 15px 25px"};
+  border: none;
   // Box shadow is a boolean
   box-shadow: ${({ boxShadow }) =>
     boxShadow ? "5px 5px 10px #888888" : "none"};
   &:hover {
+    color: white;
     box-shadow: 5px 5px 10px #888888;
     transition: box-shadow 0.2s ease-in-out;
   }

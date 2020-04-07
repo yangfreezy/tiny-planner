@@ -1,7 +1,14 @@
 import React from "react";
 
-import { SearchForm } from "../../Organisms/SearchForm/SearchForm";
+import { NavBar, SearchForm, RecipeList } from "../../Organisms";
+import { Column } from "../../Layouts";
 
 export const SearchPage = () => {
-  return <SearchForm />;
+  return (
+    <Column>
+      <NavBar />
+      <SearchForm />
+      <RecipeList />
+    </Column>
+  );
 };

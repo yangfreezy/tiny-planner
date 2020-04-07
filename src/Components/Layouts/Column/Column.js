@@ -10,6 +10,7 @@ const StyledColumn = styled.div`
   margin: ${({ margin }) => margin || "0"};
   padding: ${({ padding }) => padding || "0"};
   max-width: ${({ maxWidth }) => maxWidth || "100%"};
+  max-height: ${({ maxHeight }) => maxHeight || "100%"};
 `;
 
 export const Column = ({
@@ -18,7 +19,8 @@ export const Column = ({
   justifyContent,
   margin,
   padding,
-  maxWidth
+  maxWidth,
+  maxHeight
 }) => {
   return (
     <StyledColumn
@@ -27,6 +29,7 @@ export const Column = ({
       alignItems={alignItems}
       justifyContent={justifyContent}
       maxWidth={maxWidth}
+      maxHeight={maxHeight}
     >
       {children}
     </StyledColumn>
@@ -39,5 +42,6 @@ Column.propTypes = {
   justifyContent: PropTypes.string,
   margin: PropTypes.string,
   padding: PropTypes.string,
-  maxWidth: PropTypes.string
+  maxWidth: PropTypes.string,
+  maxHeight: PropTypes.string
 };
