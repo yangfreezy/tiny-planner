@@ -7,6 +7,7 @@ const StyledDiv = styled.div`
   flex-direction: column;
   align-items: center;
   width: ${({ width }) => width || "auto"};
+  height: ${({ height }) => height || "auto"};
   padding: ${({ padding }) => padding || "10px 25px"};
   margin: ${({ margin }) => margin || "10px 25px"};
   @media only screen and (min-width: 620px) {
@@ -14,12 +15,19 @@ const StyledDiv = styled.div`
     padding: ${({ padding }) => padding || "20px 50px"};
     margin: ${({ margin }) => margin || "20px 50px"};
     width: ${({ width }) => width || "auto"};
+    height: ${({ height }) => height || "auto"};
   }
 `;
 
-export const BoxShadowWrapper = ({ children, padding, margin, width }) => {
+export const BoxShadowWrapper = ({
+  children,
+  padding,
+  margin,
+  width,
+  height
+}) => {
   return (
-    <StyledDiv padding={padding} margin={margin} width={width}>
+    <StyledDiv padding={padding} margin={margin} width={width} height={height}>
       {children}
     </StyledDiv>
   );
@@ -29,5 +37,6 @@ BoxShadowWrapper.propTypes = {
   children: PropTypes.oneOfType([PropTypes.array, PropTypes.element]),
   padding: PropTypes.string,
   margin: PropTypes.string,
-  width: PropTypes.string
+  width: PropTypes.string,
+  height: PropTypes.string
 };

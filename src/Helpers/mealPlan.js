@@ -2,7 +2,6 @@ export const createMealPlanTemplate = () => {
   const daysOfTheWeek = ["M", "T", "W", "Th", "F", "Sa", "Su"];
   const mealPlan = daysOfTheWeek.reduce((weeklyMealPlan, day) => {
     weeklyMealPlan[day] = {};
-    // Breakfast, lunch, dinner, snack
     weeklyMealPlan[day]["B"] = { meal: "Breakfast", url: null };
     weeklyMealPlan[day]["L"] = { meal: "Lunch", url: null };
     weeklyMealPlan[day]["D"] = { meal: "Dinner", url: null };
@@ -35,9 +34,13 @@ export const deleteFromWeeklyMealPlan = (
   mealId
 ) => {
   const mealPlanCopy = JSON.parse(JSON.stringify(weeklyMealPlan));
-  console.log(mealPlanCopy);
-  console.log(day, mealId);
   mealPlanCopy[day][mealId]["url"] = null;
   localStorage.setItem("weeklyMealPlan", JSON.stringify(mealPlanCopy));
   setWeeklyMealPlan(mealPlanCopy);
+};
+
+export const clearWeeklyMealPlan = (weeklyMealPlan, setWeeklyMealPlan) => {
+  const emptyWeeklyMealPlan = createMealPlanTemplate();
+  localStorage.setItem("weeklyMealPlan", JSON.stringify(emptyWeeklyMealPlan));
+  setWeeklyMealPlan(emptyWeeklyMealPlan);
 };
