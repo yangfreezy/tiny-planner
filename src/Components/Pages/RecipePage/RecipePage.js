@@ -17,11 +17,11 @@ export const RecipePage = () => {
   let { recipe_id } = useParams();
   const recipeId = decodeURI(recipe_id);
   const [label, source] = recipeId.split("-from-");
-  const recipe = savedRecipes
-    .filter(recipe => {
-      return recipe.label === label && recipe.source === source;
-    })
-    .pop();
+  let recipe = savedRecipes.filter(recipe => {
+    return recipe.label === label && recipe.source === source;
+  });
+
+  recipe.length ? (recipe = recipe.pop()) : (recipe = null);
 
   return recipe ? (
     <Column>
