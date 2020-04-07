@@ -18,7 +18,16 @@ const labelStyles = {
 export const RecipePageItem = ({ recipe }) => {
   const { savedRecipes, setSavedRecipes } = useContext(AppContext);
 
-  const { label, image, calories, totalTime, url, source } = recipe;
+  const {
+    label,
+    image,
+    calories,
+    totalTime,
+    url,
+    source,
+    dietLabels,
+    healthLabels
+  } = recipe;
 
   const recipeIsSaved =
     savedRecipes.filter(savedRecipe => savedRecipe.url === url).length > 0;
@@ -44,6 +53,13 @@ export const RecipePageItem = ({ recipe }) => {
           <b>{totalTime}</b>
           {" minutes prep"}
         </Text>
+        <Text {...labelStyles} text="Health Labels" />
+        {
+          <Text
+            fontSize="13px"
+            text={dietLabels.concat(healthLabels).join(", ")}
+          />
+        }
         {recipeSaved ? (
           <PrimaryButton
             value="Unsave Recipe"

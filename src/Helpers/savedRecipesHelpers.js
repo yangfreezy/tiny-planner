@@ -5,7 +5,7 @@ export const saveRecipe = (
   setRecipeSaved
 ) => {
   const cachedSavedRecipes = JSON.parse(localStorage.getItem("savedRecipes"));
-  const updatedSavedRecipes = cachedSavedRecipes.concat(recipe);
+  const updatedSavedRecipes = cachedSavedRecipes.concat([recipe]);
   setSavedRecipes(updatedSavedRecipes);
   localStorage.setItem("savedRecipes", JSON.stringify(updatedSavedRecipes));
   setRecipeSaved(true);

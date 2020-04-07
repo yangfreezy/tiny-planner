@@ -1,7 +1,7 @@
 import React from "react";
 
 import { Text, PrimaryButton } from "../../Atoms/Abstracted";
-import { Column } from "../../Layouts";
+import { Column, Row } from "../../Layouts";
 import { MAIN_GREEN } from "../../../Colors";
 
 const columnStyles = {
@@ -24,15 +24,7 @@ const textLabelStyles = {
 };
 
 export const RecipeDetails = ({ recipe }) => {
-  const {
-    label,
-    dietLabels,
-    healthLabels,
-    ingredients,
-    url,
-    source,
-    totalNutrients
-  } = recipe;
+  const { label, ingredients, url, source, totalNutrients } = recipe;
 
   const openLinkInNewTab = e => {
     e.preventDefault();
@@ -57,23 +49,18 @@ export const RecipeDetails = ({ recipe }) => {
           </li>
         ))}
       </ul>
-      <Text {...textLabelStyles} text="Health Labels" />
-      {
-        <Text
-          fontSize="13px"
-          text={dietLabels.concat(healthLabels).join(", ")}
-        />
-      }
-      {Object.keys(totalNutrients)
-        .filter(nutrientLabel => nutrientLabels.includes(nutrientLabel))
-        .map(nutrientLabel => {
-          const { label, quantity, unit } = totalNutrients[nutrientLabel];
-          return (
-            <Text fontSize="13px">
-              <i>{`${label}: ${+quantity.toFixed(0)} ${unit}`}</i>
-            </Text>
-          );
-        })}
+      <Row justifyContent="space-between">
+        {Object.keys(totalNutrients)
+          .filter(nutrientLabel => nutrientLabels.includes(nutrientLabel))
+          .map(nutrientLabel => {
+            const { label, quantity, unit } = totalNutrients[nutrientLabel];
+            return (
+              <Text fontSize="13px" margin="10px 20px">
+                <i>{`${label}: ${+quantity.toFixed(0)} ${unit}`}</i>
+              </Text>
+            );
+          })}
+      </Row>
     </Column>
   );
 };

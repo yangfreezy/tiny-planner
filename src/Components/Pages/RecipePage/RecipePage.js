@@ -12,16 +12,26 @@ import {
 import { Column, Row } from "../../Layouts";
 
 export const RecipePage = () => {
-  const { savedRecipes } = useContext(AppContext);
+  let { savedRecipes } = useContext(AppContext);
+  const cachedRecipes = JSON.parse(localStorage.getItem("recipes"));
 
   let { recipe_id } = useParams();
   const recipeId = decodeURI(recipe_id);
   const [label, source] = recipeId.split("-from-");
-  let recipe = savedRecipes.filter(recipe => {
+
+  // Looks through recipes that we've searched for and cached
+  let recipe = cachedRecipes.filter(recipe => {
     return recipe.label === label && recipe.source === source;
   });
-
+  // Looks through recipes that user has saved previously
+  if (!recipe.length) {
+    recipe = savedRecipes.filter(recipe => {
+      return recipe.label === label && recipe.source === source;
+    });
+  }
   recipe.length ? (recipe = recipe.pop()) : (recipe = null);
+
+  // Redirecting to home page if neither is the case for now, but would make another api call here otherwise
 
   return recipe ? (
     <Column>
