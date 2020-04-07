@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import ScrollToTop from "react-router-scroll-top";
 
 import { AppContext } from "./Context/AppContext";
 import { createMealPlanTemplate } from "./Helpers/mealPlan";
@@ -40,13 +41,15 @@ export const App = () => {
       }}
     >
       <Router>
-        <Switch>
-          <Route path="/" exact component={SearchPage} />
-          <Route path="/recipe/:recipe_id" exact component={RecipePage} />
-          <Route path="/saved-recipes" exact component={SavedRecipesPage} />
-          <Route path="/weekly-plan" exact component={WeeklyMealPlanPage} />
-          <Route path="/" component={SearchPage} />
-        </Switch>
+        <ScrollToTop>
+          <Switch>
+            <Route path="/" exact component={SearchPage} />
+            <Route path="/recipe/:recipe_id" exact component={RecipePage} />
+            <Route path="/saved-recipes" exact component={SavedRecipesPage} />
+            <Route path="/weekly-plan" exact component={WeeklyMealPlanPage} />
+            <Route path="/" component={SearchPage} />
+          </Switch>
+        </ScrollToTop>
       </Router>
     </AppContext.Provider>
   );

@@ -36,7 +36,7 @@ export const RecipePage = () => {
   return recipe ? (
     <Column>
       <NavBar />
-      <Row alignItems="flex-start">
+      <Row alignItems="center">
         <RecipePageItem recipe={recipe} />
         <RecipeDetails recipe={recipe} />
       </Row>

@@ -8,7 +8,7 @@ export const SavedRecipeList = () => {
   const savedRecipes = JSON.parse(localStorage.getItem("savedRecipes"));
   return (
     <Row alignItems="flex-start" maxWidth="1200px" justifyContent="center">
-      {savedRecipes ? (
+      {savedRecipes && savedRecipes.length ? (
         savedRecipes.map(recipe => {
           const { uri } = recipe;
           return <RecipeItem key={uri} recipe={recipe} />;

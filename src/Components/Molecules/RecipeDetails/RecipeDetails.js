@@ -50,19 +50,23 @@ export const RecipeDetails = ({ recipe }) => {
           </li>
         ))}
       </ul>
-      <Column {...columnStyles}>
-        <Text {...textLabelStyles} text="Macronutrients" />
-        {Object.keys(totalNutrients)
-          .filter(nutrientLabel => nutrientLabels.includes(nutrientLabel))
-          .map(nutrientLabel => {
-            const { label, quantity, unit } = totalNutrients[nutrientLabel];
-            return (
-              <Text fontSize="12px" margin="5px 20px">
-                {`${label}: ${+quantity.toFixed(0)} ${unit}`}
-              </Text>
-            );
-          })}
-      </Column>
+      <Text {...textLabelStyles} text="Macronutrients" />
+      {Object.keys(totalNutrients)
+        .filter(nutrientLabel => nutrientLabels.includes(nutrientLabel))
+        .map(nutrientLabel => {
+          const { label, quantity, unit } = totalNutrients[nutrientLabel];
+          return (
+            <Text fontSize="12px" margin="5px 20px">
+              {`${label}: ${+quantity.toFixed(0)} ${unit}`}
+            </Text>
+          );
+        })}
+      <Text
+        margin="20px 0px"
+        color={MAIN_GREEN}
+        fontSize="12px"
+        text="More nutrition details below.."
+      />
     </Column>
   );
 };
