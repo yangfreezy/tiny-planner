@@ -9,6 +9,7 @@ import { MAIN_GREEN } from "../../../Colors";
 
 const imageStyles = { margin: "25px 0px", width: "200px", height: "auto" };
 const columnStyles = { maxWidth: "400px", width: "400px", margin: "0px 50px" };
+
 const labelStyles = {
   color: MAIN_GREEN,
   maxWidth: "200px",
@@ -54,12 +55,12 @@ export const RecipePageItem = ({ recipe }) => {
           {" minutes prep"}
         </Text>
         <Text {...labelStyles} text="Health Labels" />
-        {
-          <Text
-            fontSize="13px"
-            text={dietLabels.concat(healthLabels).join(", ")}
-          />
-        }
+        <Text
+          fontSize="13px"
+          maxWidth="200px"
+          text={dietLabels.concat(healthLabels).join(", ")}
+        />
+
         {recipeSaved ? (
           <PrimaryButton
             value="Unsave Recipe"

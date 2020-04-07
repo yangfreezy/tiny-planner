@@ -1,7 +1,7 @@
 import React from "react";
 
 import { Text, PrimaryButton } from "../../Atoms/Abstracted";
-import { Column, Row } from "../../Layouts";
+import { Column } from "../../Layouts";
 import { MAIN_GREEN } from "../../../Colors";
 
 const columnStyles = {
@@ -10,6 +10,7 @@ const columnStyles = {
   justifyContent: "flex-start",
   margin: "25px 50px"
 };
+
 const ulStyles = {
   maxWidth: "300px",
   width: "300px",
@@ -49,7 +50,7 @@ export const RecipeDetails = ({ recipe }) => {
           </li>
         ))}
       </ul>
-      <Row justifyContent="space-between">
+      <Column {...columnStyles}>
         {Object.keys(totalNutrients)
           .filter(nutrientLabel => nutrientLabels.includes(nutrientLabel))
           .map(nutrientLabel => {
@@ -60,7 +61,7 @@ export const RecipeDetails = ({ recipe }) => {
               </Text>
             );
           })}
-      </Row>
+      </Column>
     </Column>
   );
 };
