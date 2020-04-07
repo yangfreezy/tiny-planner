@@ -31,7 +31,7 @@
 
 # Improvements for next time:
 
-I'd have loved more time with this, it was a really fun coding challenge to work on and I felt like it was just complex enough to treat as a real app. I think as a result, I may have gotten a bit carried away with UI, styling, etc, and had to make some trade offs (testing, typescript) as a result. But to get what what I wanted to get done within the time frame given, I did what I could with architecture, ui design, reusability.
+I'd have loved more time with this, it was a really fun coding challenge to work on and I felt like it was just complex enough to treat as a real app. I think as a result, I may have gotten a bit carried away with UI, styling, etc, and had to make some trade offs (testing, typescript, commenting) as a result. But to get what what I wanted to get done within the time frame given, I did what I could with architecture, ui design, reusability.
 
 There could definitely be more abstractions made (WeeklyMealPlanList in particular), thorough testing, improvements in user experience all around, etc., but did my best to make the experience somewhat enjoyable for the user while meeting all the application requirements.
 
