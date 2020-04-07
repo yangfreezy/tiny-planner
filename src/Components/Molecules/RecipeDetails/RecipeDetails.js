@@ -51,13 +51,14 @@ export const RecipeDetails = ({ recipe }) => {
         ))}
       </ul>
       <Column {...columnStyles}>
+        <Text {...textLabelStyles} text="Macronutrients" />
         {Object.keys(totalNutrients)
           .filter(nutrientLabel => nutrientLabels.includes(nutrientLabel))
           .map(nutrientLabel => {
             const { label, quantity, unit } = totalNutrients[nutrientLabel];
             return (
-              <Text fontSize="13px" margin="10px 20px">
-                <i>{`${label}: ${+quantity.toFixed(0)} ${unit}`}</i>
+              <Text fontSize="12px" margin="5px 20px">
+                {`${label}: ${+quantity.toFixed(0)} ${unit}`}
               </Text>
             );
           })}

@@ -7,7 +7,7 @@ import { NavBar } from "../../Organisms";
 import {
   RecipeDetails,
   RecipePageItem,
-  NutritionDetails
+  NutritionalDetails
 } from "../../Molecules";
 import { Column, Row } from "../../Layouts";
 
@@ -40,7 +40,7 @@ export const RecipePage = () => {
         <RecipePageItem recipe={recipe} />
         <RecipeDetails recipe={recipe} />
       </Row>
-      <NutritionDetails recipe={recipe} />
+      <NutritionalDetails recipe={recipe} />
     </Column>
   ) : (
     <Redirect to="/" />

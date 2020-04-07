@@ -13,13 +13,13 @@ const columnStyles = {
   margin: "25px 25px"
 };
 
-export const NutritionDetails = ({ recipe }) => {
+export const NutritionalDetails = ({ recipe }) => {
   console.log(recipe);
   const { totalNutrients, totalDaily } = recipe;
   return (
     <BoxShadowWrapper margin="100px 50px">
       <Column {...columnStyles}>
-        <Text color={MAIN_GREEN} fontWeight="bold" text="Nutrition Details" />
+        <Text color={MAIN_GREEN} fontWeight="bold" text="Nutritional Details" />
         {Object.keys(totalNutrients).map(nutrient => {
           const { label, quantity, unit } = totalNutrients[nutrient];
           let percentageOfDailyValue;

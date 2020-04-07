@@ -56,7 +56,7 @@ export const RecipePageItem = ({ recipe }) => {
         </Text>
         <Text {...labelStyles} text="Health Labels" />
         <Text
-          fontSize="13px"
+          fontSize="12px"
           maxWidth="200px"
           text={dietLabels.concat(healthLabels).join(", ")}
         />
