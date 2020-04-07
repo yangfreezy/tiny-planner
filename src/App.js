@@ -1,5 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Redirect
+} from "react-router-dom";
 
 import { AppContext } from "./Context/AppContext";
 import { createMealPlanTemplate } from "./Helpers/mealPlan";
@@ -45,6 +50,7 @@ export const App = () => {
           <Route path="/recipe/:recipe_id" exact component={RecipePage} />
           <Route path="/saved-recipes" exact component={SavedRecipesPage} />
           <Route path="/weekly-plan" exact component={WeeklyMealPlanPage} />
+          <Route path="/" component={SearchPage} />
         </Switch>
       </Router>
     </AppContext.Provider>

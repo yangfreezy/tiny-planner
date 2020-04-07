@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { useParams } from "react-router-dom";
+import { Redirect, useParams } from "react-router-dom";
 
 import { AppContext } from "../../../Context/AppContext";
 
@@ -23,7 +23,7 @@ export const RecipePage = () => {
     })
     .pop();
 
-  return (
+  return recipe ? (
     <Column>
       <NavBar />
       <Row alignItems="flex-start">
@@ -32,5 +32,7 @@ export const RecipePage = () => {
       </Row>
       <NutritionDetails recipe={recipe} />
     </Column>
+  ) : (
+    <Redirect to="/" />
   );
 };
