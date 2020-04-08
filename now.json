@@ -1,0 +1,12 @@
+{
+  "env": {
+    "REACT_APP_EDAMAM_APP_ID": "@react_app_edamam_app_id",
+    "REACT_APP_EDAMAM_APP_KEY": "@react_app_edamam_app_key"
+  },
+  "build": {
+    "env": {
+      "REACT_APP_EDAMAM_APP_ID": "@react_app_edamam_app_id",
+      "REACT_APP_EDAMAM_APP_KEY": "@react_app_edamam_app_key"
+    }
+  }
+}
