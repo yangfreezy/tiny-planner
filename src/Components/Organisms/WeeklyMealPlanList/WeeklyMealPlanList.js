@@ -53,7 +53,7 @@ export const WeeklyMealPlanList = React.memo(() => {
                   .pop();
                 return recipe ? (
                   <Fragment key={day + meal}>
-                    <Text fontWeight="bold">{dayName + "'s " + meal}</Text>
+                    <Text fontWeight="bold">{meal}</Text>
                     <Meal recipe={recipe} />
                     <PrimaryButton
                       value="Remove"
@@ -70,7 +70,7 @@ export const WeeklyMealPlanList = React.memo(() => {
                   </Fragment>
                 ) : (
                   <Fragment key={day + meal}>
-                    <Text fontWeight="bold">{dayName + "'s " + meal}</Text>
+                    <Text fontWeight="bold">{meal}</Text>
                     <BoxShadowWrapper width="200px">
                       <Text fontSize="14px">
                         <i>{`${dayKeyToName[day]}'s ${meal} is free!`}</i>
