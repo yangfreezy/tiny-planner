@@ -56,7 +56,7 @@ export const RecipeDetails = React.memo(({ recipe }) => {
         .map(nutrientLabel => {
           const { label, quantity, unit } = totalNutrients[nutrientLabel];
           return (
-            <Text fontSize="12px" margin="5px 20px">
+            <Text key={label} fontSize="12px" margin="5px 20px">
               {`${label}: ${+quantity.toFixed(0)} ${unit}`}
             </Text>
           );

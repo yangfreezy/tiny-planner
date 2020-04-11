@@ -21,6 +21,7 @@ export const NutritionalDetails = React.memo(({ recipe }) => {
         <Text color={MAIN_GREEN} fontWeight="bold" text="Nutritional Details" />
         {Object.keys(totalNutrients).map(nutrient => {
           const { label, quantity, unit } = totalNutrients[nutrient];
+
           let percentageOfDailyValue;
           if (totalDaily[nutrient])
             percentageOfDailyValue =
@@ -28,7 +29,7 @@ export const NutritionalDetails = React.memo(({ recipe }) => {
               "% of daily intake";
 
           return (
-            <Text fontSize="12px" margin="5px 0px" textAlign="left">
+            <Text key={label} fontSize="12px" margin="5px 0px" textAlign="left">
               <b> {`${label}: ${quantity.toFixed(0)} ${unit}`}</b>
               {percentageOfDailyValue ? ` | ${percentageOfDailyValue}` : null}
             </Text>

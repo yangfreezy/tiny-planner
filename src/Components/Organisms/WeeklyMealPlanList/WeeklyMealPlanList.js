@@ -42,7 +42,7 @@ export const WeeklyMealPlanList = React.memo(() => {
           const mealsOfDay = Object.keys(dayData);
           const dayName = dayKeyToName[day];
           return (
-            <Column margin="25px 25px">
+            <Column key={day} margin="25px 25px">
               <Text color={MAIN_GREEN} fontWeight="bold" fontSize="20px">
                 {dayName}
               </Text>
@@ -52,7 +52,7 @@ export const WeeklyMealPlanList = React.memo(() => {
                   .filter(recipe => recipe.url === url)
                   .pop();
                 return recipe ? (
-                  <Fragment>
+                  <Fragment key={day + meal}>
                     <Text fontWeight="bold">{dayName + "'s " + meal}</Text>
                     <Meal recipe={recipe} />
                     <PrimaryButton
@@ -69,7 +69,7 @@ export const WeeklyMealPlanList = React.memo(() => {
                     ></PrimaryButton>
                   </Fragment>
                 ) : (
-                  <Fragment>
+                  <Fragment key={day + meal}>
                     <Text fontWeight="bold">{dayName + "'s " + meal}</Text>
                     <BoxShadowWrapper width="200px">
                       <Text fontSize="14px">
