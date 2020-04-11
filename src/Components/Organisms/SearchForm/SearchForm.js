@@ -21,6 +21,13 @@ export const SearchForm = () => {
 
   const handleSearch = async e => {
     e.preventDefault();
+    if (dishTypes.length || cuisineTypes.length) {
+      alert(
+        "Dish and cuisine types filters are currently only available for paid customers - sorry!"
+      );
+      await setDishTypes([]);
+      await setCuisineTypes([]);
+    }
     const recipes = await pipe(
       formatQueries,
       getRecipes
@@ -85,6 +92,7 @@ export const SearchForm = () => {
             label="Dish Type (Paid)"
             selections={dishTypes}
             setSelections={setDishTypes}
+            disabled={true}
             options={[
               "Bread",
               "Cereals",
@@ -106,6 +114,7 @@ export const SearchForm = () => {
             label="Cuisine Type (Paid)"
             selections={cuisineTypes}
             setSelections={setCuisineTypes}
+            disabled={true}
             options={[
               "American",
               "Asian",

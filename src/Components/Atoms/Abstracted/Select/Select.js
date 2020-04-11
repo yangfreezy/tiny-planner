@@ -5,12 +5,21 @@ import { Column } from "../../../Layouts/Column/Column";
 import { Row } from "../../../Layouts/Row/Row";
 import { Text } from "../Text/Text";
 
-export const Select = ({ name, label, options, selections, setSelections }) => {
-  const checkedSelections = selections.reduce((cache, value) => {
-    cache[value] = false;
-    return cache;
+export const Select = ({
+  name,
+  label,
+  options,
+  selections,
+  setSelections,
+  disabled
+}) => {
+  const checkedSelections = selections.reduce((acc, value) => {
+    acc[value] = false;
+    return acc;
   }, {});
+
   const [checkedItems, setCheckedItems] = useState(checkedSelections);
+
   const handleChange = (e, selections) => {
     const currentCheckedItems = JSON.parse(JSON.stringify(checkedItems));
     currentCheckedItems[e.target.id] = !checkedItems[e.target.id];
@@ -21,17 +30,19 @@ export const Select = ({ name, label, options, selections, setSelections }) => {
     );
     setSelections(selectedOptions);
   };
+
   return (
     <Column margin="0px 25px" alignItems="flex-start">
       <Text color={MAIN_GREEN}> {label}</Text>
       {options.map(option => (
-        <Row alignItems="middle" justifyContent="flex-start" key={option}>
+        <Row alignItems="flex-start" justifyContent="flex-start" key={option}>
           <input
             onChange={handleChange}
             type="checkbox"
             id={option}
             value={option}
             name={name}
+            disabled={disabled ? true : false}
           />
           <Text margin="0px 10px" fontSize="10px">
             {option}
