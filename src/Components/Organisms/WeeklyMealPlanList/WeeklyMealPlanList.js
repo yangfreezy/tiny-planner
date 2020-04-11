@@ -11,20 +11,21 @@ import { Text, PrimaryButton } from "../../Atoms/Abstracted";
 import { Column, Row, BoxShadowWrapper } from "../../Layouts";
 import { MAIN_GREEN } from "../../../Colors";
 
-export const WeeklyMealPlanList = () => {
+const dayKeyToName = {
+  M: "Monday",
+  T: "Tuesday",
+  W: "Wednesday",
+  Th: "Thursday",
+  F: "Friday",
+  Sa: "Saturday",
+  Su: "Sunday"
+};
+
+export const WeeklyMealPlanList = React.memo(() => {
   const { weeklyMealPlan, setWeeklyMealPlan, savedRecipes } = useContext(
     AppContext
   );
   const days = Object.keys(weeklyMealPlan);
-  const dayKeyToName = {
-    M: "Monday",
-    T: "Tuesday",
-    W: "Wednesday",
-    Th: "Thursday",
-    F: "Friday",
-    Sa: "Saturday",
-    Su: "Sunday"
-  };
 
   return (
     <Column>
@@ -84,4 +85,4 @@ export const WeeklyMealPlanList = () => {
       </Row>
     </Column>
   );
-};
+});

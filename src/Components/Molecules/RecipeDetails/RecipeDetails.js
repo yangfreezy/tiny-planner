@@ -24,15 +24,15 @@ const textLabelStyles = {
   color: MAIN_GREEN
 };
 
-export const RecipeDetails = ({ recipe }) => {
+const nutrientLabels = ["FAT", "FASAT", "CHOCDF", "PROCNT", "SUGAR"];
+
+export const RecipeDetails = React.memo(({ recipe }) => {
   const { label, ingredients, url, source, totalNutrients } = recipe;
 
   const openLinkInNewTab = e => {
     e.preventDefault();
     window.open(url, "_blank");
   };
-
-  const nutrientLabels = ["FAT", "FASAT", "CHOCDF", "PROCNT", "SUGAR"];
 
   return (
     <Column {...columnStyles}>
@@ -69,4 +69,4 @@ export const RecipeDetails = ({ recipe }) => {
       />
     </Column>
   );
-};
+});

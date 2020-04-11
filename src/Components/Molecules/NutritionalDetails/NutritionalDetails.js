@@ -13,7 +13,7 @@ const columnStyles = {
   margin: "25px 25px"
 };
 
-export const NutritionalDetails = ({ recipe }) => {
+export const NutritionalDetails = React.memo(({ recipe }) => {
   console.log(recipe);
   const { totalNutrients, totalDaily } = recipe;
   return (
@@ -38,4 +38,4 @@ export const NutritionalDetails = ({ recipe }) => {
       </Column>
     </BoxShadowWrapper>
   );
-};
+});

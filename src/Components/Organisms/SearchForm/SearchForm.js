@@ -9,6 +9,48 @@ import { Select, PrimaryButton } from "../../Atoms/Abstracted";
 import { Column, Row } from "../../Layouts";
 import { MAIN_GREEN } from "../../../Colors";
 
+const mealOptions = ["Breakfast", "Lunch", "Dinner", "Snack"];
+const dietOptions = [
+  "Balanced",
+  "High-protein",
+  "High-fiber",
+  "Low-fat",
+  "Low-carb",
+  "Low-sodium"
+];
+const dishOptions = [
+  "Bread",
+  "Cereals",
+  "Drinks",
+  "Desserts",
+  "Main course",
+  "Pancake",
+  "Preps",
+  "Salad",
+  "Sandwiches",
+  "Side dish",
+  "Soup",
+  "Starter",
+  "Sweets"
+];
+const cuisineOptions = [
+  "American",
+  "Asian",
+  "British",
+  "Caribbean",
+  "Chinese",
+  "French",
+  "Indian",
+  "Italian",
+  "Japanese",
+  "Kosher",
+  "Mediterranean",
+  "Mexican",
+  "Middle Eastern",
+  "South American",
+  "South East Asian"
+];
+
 export const SearchForm = () => {
   const [mealTypes, setMealTypes] = useState([]);
   const [dietTypes, setDietTypes] = useState([]);
@@ -70,21 +112,14 @@ export const SearchForm = () => {
               label="Meal Type (Free)"
               selections={mealTypes}
               setSelections={setMealTypes}
-              options={["Breakfast", "Lunch", "Dinner", "Snack"]}
+              options={mealOptions}
               name="meal_type"
             />
             <Select
               label="Diet (Free)"
               selections={dietTypes}
               setSelections={setDietTypes}
-              options={[
-                "Balanced",
-                "High-protein",
-                "High-fiber",
-                "Low-fat",
-                "Low-carb",
-                "Low-sodium"
-              ]}
+              options={dietOptions}
               name="diet"
             />
           </Column>
@@ -93,21 +128,7 @@ export const SearchForm = () => {
             selections={dishTypes}
             setSelections={setDishTypes}
             disabled={true}
-            options={[
-              "Bread",
-              "Cereals",
-              "Drinks",
-              "Desserts",
-              "Main course",
-              "Pancake",
-              "Preps",
-              "Salad",
-              "Sandwiches",
-              "Side dish",
-              "Soup",
-              "Starter",
-              "Sweets"
-            ]}
+            options={dishOptions}
             name="dish_type"
           />
           <Select
@@ -115,23 +136,7 @@ export const SearchForm = () => {
             selections={cuisineTypes}
             setSelections={setCuisineTypes}
             disabled={true}
-            options={[
-              "American",
-              "Asian",
-              "British",
-              "Caribbean",
-              "Chinese",
-              "French",
-              "Indian",
-              "Italian",
-              "Japanese",
-              "Kosher",
-              "Mediterranean",
-              "Mexican",
-              "Middle Eastern",
-              "South American",
-              "South East Asian"
-            ]}
+            options={cuisineOptions}
             name="cuisine"
           />
         </Row>

@@ -7,12 +7,12 @@ import { Text, PrimaryButton } from "../../Atoms/Abstracted";
 import { Column, Row } from "../../Layouts";
 import { MAIN_GREEN } from "../../../Colors";
 
+const dayOptions = ["M", "T", "W", "Th", "F", "Sa", "Su"];
+const mealOptions = ["B", "L", "D", "S"];
+
 export const WeeklyPlanSelect = ({ url }) => {
   const { weeklyMealPlan, setWeeklyMealPlan } = useContext(AppContext);
   const [selectedMeals, setSelectedMeals] = useState([]);
-
-  const dayOptions = ["M", "T", "W", "Th", "F", "Sa", "Su"];
-  const mealOptions = ["B", "L", "D", "S"];
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -59,7 +59,6 @@ export const WeeklyPlanSelect = ({ url }) => {
         </Row>
         <Column>
           <Text fontSize="8px" text="Breakfast, Lunch, Dinner, Snack" />
-
           <PrimaryButton
             value="Add to Plan"
             backgroundColor={MAIN_GREEN}

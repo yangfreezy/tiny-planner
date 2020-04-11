@@ -4,7 +4,7 @@ import { LinkWrapper, Text } from "../../Atoms/Abstracted";
 import { Column, Row } from "../../Layouts";
 import { MAIN_GREEN } from "../../../Colors";
 
-export const NavBar = () => {
+export const NavBar = React.memo(() => {
   return (
     <Column>
       <LinkWrapper to="/">
@@ -36,4 +36,4 @@ export const NavBar = () => {
       </Row>
     </Column>
   );
-};
+});

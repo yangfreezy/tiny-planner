@@ -19,7 +19,7 @@ const columnStyles = { maxWidth: "400px", width: "400px" };
 const textStyles = { maxWidth: "200px", fontWeight: "bold" };
 const cardStyles = { padding: "50px 50px", margin: "25px 25px" };
 
-export const RecipeItem = ({ recipe }) => {
+export const RecipeItem = React.memo(({ recipe }) => {
   const { savedRecipes, setSavedRecipes } = useContext(AppContext);
   const { label, image, calories, totalTime, url, source } = recipe;
   const recipeIsSaved =
@@ -76,4 +76,4 @@ export const RecipeItem = ({ recipe }) => {
       </Column>
     </BoxShadowWrapper>
   );
-};
+});
