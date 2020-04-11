@@ -14,7 +14,6 @@ const columnStyles = {
 };
 
 export const NutritionalDetails = React.memo(({ recipe }) => {
-  console.log(recipe);
   const { totalNutrients, totalDaily } = recipe;
   return (
     <BoxShadowWrapper margin="100px 50px">
